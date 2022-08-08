@@ -3,10 +3,9 @@
 <script type="text/javascript">
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  // var user_id = "{{request.user|safe}}"
-  console.log(my_user_id)
-  
-  _paq.push(['setUserId', my_user_id]);
+  if (my_user_id!='AnonymousUser'){
+    _paq.push(['setUserId', my_user_id]);
+  }
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
