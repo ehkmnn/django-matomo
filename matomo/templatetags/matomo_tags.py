@@ -12,7 +12,6 @@ register = template.Library()
 @register.inclusion_tag('matomo/tracking_code.html')
 def tracking_code():
     
-    user_id = request.user
 
     try:
         id = settings.MATOMO_SITE_ID
@@ -22,4 +21,4 @@ def tracking_code():
         url = settings.MATOMO_URL
     except AttributeError:
         raise ImproperlyConfigured('MATOMO_URL does not exist.')
-    return {'id': id, 'url': url, 'user_id': user_id}
+    return {'id': id, 'url': url}
